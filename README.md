@@ -46,7 +46,7 @@ Compiled files will be created as follows:
          └─ en.json
          └─ fr.json
          
-The structure of a compiled file follows its position in the filesystem. So the compiled files will look like:
+The structure of a compiled file (its properties) follows the structure of its constiuent language files in the filesystem. So the compiled files will look like:
 
     {
         "branding": { *contents of branding.json* },
