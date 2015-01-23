@@ -1,6 +1,6 @@
 # i18n-squish
 
-Watch and compile language files into single locales ready to be served to angular-translate using angular-translate-loader-url. Can be used with or without Express and optinally watches files using `node-watch` to recompile upon changes.
+Watch and compile language files into single locales ready to be served to angular-translate using angular-translate-loader-url. Can be used with or without Express and optionally watches files using `node-watch` to recompile upon changes.
 
 ## Usage
 
