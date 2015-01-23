@@ -4,7 +4,8 @@ Watch and compile language files into single locales ready to be served to angul
 
 ## Usage
 
-1. Require the package with an optional parameters object: `require('i18n-squish')(params)`.
+1. Install with NPM: `npm install i18n-squish`
+2. Require the package with an optional parameters object: `require('i18n-squish')(params)`.
 
 ## Options
 
