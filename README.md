@@ -28,7 +28,7 @@ Given the following file structure and default options:
     |
     └─ /branding
          |
-         └─en.json
+         └─ en.json
          └─ fr.json
     └─ /routes
          |
@@ -44,6 +44,13 @@ Compiled files will be created as follows:
          |
          └─ en.json
          └─ fr.json
+         
+The structure of a compiled file follows its position in the filesystem. So the compiled files will look like:
+
+    {
+        "branding": { *contents of branding.json* },
+        "routes": { *contents of routes.json* }
+    }
 
 Using `express: {ExpressApp}` and default `endpoint: '/api/lang'` options will mean retrieving the `en.json` file is as simple as sending a GET request to `/api/lang?lang=json`. This operation is performed automatically by angular-translate-loader-url when using `$translateProvider.useUrlLoader('/api/lang')`.
 
