@@ -7,6 +7,10 @@ Watch and compile language files into single locales ready to be served to angul
 1. Install with NPM: `npm install i18n-squish`
 2. Require the package with an optional parameters object: `require('i18n-squish')(params)`.
 
+## Returns
+
+Requiring `i18n-squish` returns a function that accepts one parameter `locale`. This function will return the compiled JSON file for the specified `locale`. The function returned and used in the Express route can be overridden by passing one's own function to `fetch` in the options object.
+
 ## Options
 
 The parameters object accepts the following properties:
