@@ -50,4 +50,5 @@ Using `express: {ExpressApp}` and default `endpoint: '/api/lang'` options will m
 ## Changelog
 
 `1.0.1`: Express endpoint bugfix (missing `/`) and moved `app` parameter into `_opt` as Express is optional
+
 `1.0.0`: initial release
