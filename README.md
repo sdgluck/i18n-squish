@@ -16,7 +16,7 @@ Requiring `i18n-squish` returns a function that accepts one parameter `locale`. 
 The parameters object accepts the following properties:
 
 1. `dir` (default: 'app/i18n'): the directory where all language files reside relative to root of project
-2. `out` (default: `dir` + '/_compiled'): the directory to output compiled locale files relative to root of project
+2. `out` (default: `dir` + '/_compiled'): the directory to output compiled locale files relative to root of project - this directory will be emptied before being written to (so be careful!)
 3. `endpoint` (default: '/api/lang'): the endpoint to create an Express GET route for fetching locales - this defaults to the angular-translate-loader-url default
 4. `whitespace` (default: 0): number of spaces to use as whitespace in JSON.stringify call
 5. `watch` (default: false): boolean indicating whether uncompiled langauge files in `dir` should be watched and recompiled upon changes
