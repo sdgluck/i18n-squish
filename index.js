@@ -1,4 +1,4 @@
-module.exports = function(app, _opt) {
+module.exports = function(_opt) {
     var fs = require('fs'),
         deepWalk = require('./deepWalk'),
         watch = require('node-watch');
@@ -6,10 +6,11 @@ module.exports = function(app, _opt) {
     // Default settings:
     var opt = {
         dir: 'app/i18n',
-        endpoint: 'api/lang',
+        endpoint: '/api/lang',
         whitespace: 0,
         watch: false,
-        express: false
+        express: false,
+        fetch: null
     };
 
     // Perform mixin of user settings:
@@ -31,18 +32,20 @@ module.exports = function(app, _opt) {
     compile(function() {
         opt.watch && watch(opt.dir, compile);
 
-        opt.express && app.get(opt.endpoint, function(req, res) {
-            if(!req.query.lang) {
-                res.status(500).send('`lang` undefined');
-                return;
-            }
+        if(opt.express) {
+            opt.express.get(opt.endpoint, function(req, res) {
+                if(!req.query.lang) {
+                    res.status(500).send('`lang` undefined');
+                    return;
+                }
 
-            try {
-                res.send(fetchLocale(req.query.lang));
-            } catch(err) {
-                res.status(404).send();
-            }
-        });
+                try {
+                    res.send(fetchLocale(req.query.lang));
+                } catch(err) {
+                    res.status(404).send();
+                }
+            });
+        }
     });
 
     /*******************************************************************************************************************
@@ -186,16 +189,13 @@ module.exports = function(app, _opt) {
      * @param locale name of locale to read
      * @param done callback
      */
-    var fetchLocale = opt.fetch || function(locale, done) {
-        fs.readFile(opt.dir + '/' + locale + '.json', function(err, contents) {
-            if(err) {
-                done(err);
-                return;
+    var fetchLocale = opt.fetch || function(locale) {
+            try {
+                return require(process.cwd() + '/' + opt.out + '/' + locale + '.json');
+            } catch(err) {
+                throw new Error('locale does not exist');
             }
-
-            done(null, contents);
-        });
-    };
+        };
 
     return fetchLocale;
 };

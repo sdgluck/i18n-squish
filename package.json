@@ -1,11 +1,8 @@
 {
   "name": "i18n-squish",
   "description": "Watch and compile language files into single locales ready to be served to angular-translate using angular-translate-loader-url.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Sam Gluck",
-    "email": "sdgluck@gmail.com"
-  },
+  "version": "1.0.1",
+  "author": "Sam Gluck <sdgluck@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/sdgluck/i18n-squish"
@@ -24,8 +21,13 @@
     "node-watch",
     "compile"
   ],
-  "readmeFilename": "README.md",
   "dependencies": {
     "node-watch": "^0.3.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/sdgluck/i18n-squish/issues"
+  },
+  "homepage": "https://github.com/sdgluck/i18n-squish",
+  "main": "index.js",
+  "license": "GNU GPL"
 }
